@@ -6,6 +6,6 @@ const openSans = Open_Sans({
   subsets: ['latin'],
 });
 
-export default function Home() {
-  return <main className={openSans.className}>Content</main>;
+export default function Shop() {
+  return <main className={openSans.className}>Shop</main>;
 }
