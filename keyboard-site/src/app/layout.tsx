@@ -29,7 +29,7 @@ export default function RootLayout({
           </Navigation>
           <Profile name="its_jordan" avatar="avatar.png" />
         </Header>
-        {children}
+        <div className='body-wrapper'>{children}</div>
       </body>
     </html>
   );
