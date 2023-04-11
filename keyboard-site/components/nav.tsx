@@ -1,5 +1,3 @@
-import { Url } from 'url';
-
 interface NavProps {
   children?: React.ReactNode;
   title?: string;
@@ -7,7 +5,11 @@ interface NavProps {
 }
 
 export function NavLink({ title, link }: NavProps) {
-  return <a className="navbar-link" href={`/${link}`}>{title}</a>;
+  return (
+    <a className="navbar-link" href={`/${link}`}>
+      {title}
+    </a>
+  );
 }
 
 export default function Navigation({ children }: NavProps) {

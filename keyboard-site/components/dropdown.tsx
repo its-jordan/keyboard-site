@@ -4,8 +4,8 @@ import { Dropdown } from '@nextui-org/react';
 import React from 'react';
 
 interface DropdownProps {
-  name: string;
-  item: string;
+  name?: string;
+  item?: string;
 }
 
 export default function DropdownList({ name, item }: DropdownProps) {

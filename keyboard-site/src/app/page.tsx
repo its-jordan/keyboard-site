@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <main className={openSans.className}>
       <ContentWrapper>
-        <div className="bg-black/20 text-black">
+        <div className="flex flex-row flex-nowrap gap-10 items-center py-16">
           <img src="avatar.png" className="h-40 rounded-md"></img>
           <div>
             <h2>Title</h2>
-            <p>
+            <p className="max-w-[60ch]" contentEditable="true">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At
               repudiandae quisquam recusandae veritatis voluptates atque
               consectetur soluta. Iusto praesentium nesciunt laudantium iure

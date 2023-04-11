@@ -7,10 +7,22 @@ interface ContentProps {
 }
 
 export default function ContentWrapper({ children }: ContentProps) {
-  return <div className="content-wrapper">{children}</div>;
+  return (
+    <div className="content-wrapper">
+      <div className="content-background text-black">
+        <div className="content-container">{children}</div>
+      </div>
+    </div>
+  );
 }
 
-export function ShopItems({ title, image, link, price, children }: ContentProps) {
+export function ShopItems({
+  title,
+  image,
+  link,
+  price,
+  children,
+}: ContentProps) {
   return (
     <a href={link} className="shop-item">
       <img src={image} className="shop-item-image"></img>
