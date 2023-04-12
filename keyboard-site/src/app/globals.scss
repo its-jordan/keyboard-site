@@ -142,9 +142,20 @@ body {
   border-radius: var(--rounded);
   box-shadow: 0 0 5px rgb(0 0 0 / 0.2);
   transition: scale 300ms ease, box-shadow 300ms ease;
+  overflow: hidden;
   &:hover {
     box-shadow: 0 5px 10px rgb(0 0 0 / 0.3);
     scale: 1.02;
+    & .shop-item-image {
+      width: 110% !important;
+      object-position: center;
+      max-width: 110% !important;
+      overflow: hidden;
+      margin-left: -5%;
+      object-fit: cover;
+      height: 110%;
+      margin-top: -5%;
+    }
   }
 }
 
@@ -156,6 +167,7 @@ body {
   border-radius: var(--rounded);
   z-index: 1;
   opacity: 1;
+  transition: all 300ms ease;
 }
 
 .shop-content-container {
