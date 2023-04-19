@@ -23,6 +23,7 @@ export default async function Shop() {
   return (
     <main className={openSans.className}>
       <ContentWrapper>
+        <h2 className="pb-6">Keyboards</h2>
         <div className="shop-grid">
           {items?.map((item) => {
             return (
