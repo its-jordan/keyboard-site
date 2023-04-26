@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface NavProps {
   children?: React.ReactNode;
   title?: string;
@@ -24,7 +26,15 @@ export function Logo() {
   return (
     <div>
       <a className="navbar-logo" href="/">
-        <img src="logo.png"></img>
+        <div>
+          <Image
+            priority
+            src="/pkeyslogo.svg"
+            height={256}
+            width={256}
+            alt="Precision Keys Logo"
+          />
+        </div>
       </a>
     </div>
   );
@@ -40,7 +50,13 @@ export function Profile({ name, avatar }: ProfileProps) {
     <a className="profile-container" href={`/profile/${name}`}>
       <div className="profile-name">{name}</div>
       <div className="profile-avatar">
-        <img src={avatar}></img>
+        <Image
+          priority
+          src={`/${avatar}`}
+          height={40}
+          width={40}
+          alt="User Profile Picture"
+        />
       </div>
     </a>
   );

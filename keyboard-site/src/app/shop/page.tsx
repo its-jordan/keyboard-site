@@ -39,6 +39,23 @@ export default async function Shop() {
           })}
         </div>
       </ContentWrapper>
+      <ContentWrapper>
+        <h2 className="pb-6">Keyboards</h2>
+        <div className="shop-grid">
+          {items?.map((item) => {
+            return (
+              <ShopItems
+                key={item.id}
+                title={item.product_name}
+                image={`http://127.0.0.1:8090/api/files/ij181xiqwd5pfx6/${item.id}/${item.product_images[0]}`}
+                price="100"
+                link={`/shop/product/${item.id}`}>
+                {item.short_description}
+              </ShopItems>
+            );
+          })}
+        </div>
+      </ContentWrapper>
     </main>
   );
 }

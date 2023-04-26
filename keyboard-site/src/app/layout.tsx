@@ -27,11 +27,11 @@ export default function RootLayout({
             <NavLink link="" title="Home" />
             <NavLink link="shop" title="Shop" />
           </Navigation>
-          <Profile name="Jordan" avatar="./avatar.png" />
+          <Profile name="Jordan" avatar="avatar.png" />
         </Header>
         <div className="body-wrapper">{children}</div>
         <footer>
-          <div className="flex flex-col justify-between items-start">
+          <div className="footer-links">
             <h3>Sitemap</h3>
             <a>Shop</a>
             <a>Home</a>

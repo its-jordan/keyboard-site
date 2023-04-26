@@ -12,14 +12,18 @@
 
 body {
   --nav-height: 60px;
+  --footer-height: 100px;
   width: 100%;
   min-height: calc(100vh - var(--nav-height));
   min-height: calc(100dvh - var(--nav-height));
+  background: #000;
 }
 
 .body-wrapper {
+  min-height: calc(100vh - var(--nav-height) - var(--footer-height));
   width: 100%;
   margin-inline: auto;
+  background: #000;
 }
 
 // Navigation
@@ -36,9 +40,8 @@ body {
   flex-flow: row nowrap;
   justify-content: space-between;
   padding: 10px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+  // box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
   z-index: 100;
-  background: white;
   & * {
     display: flex;
     align-items: center;
@@ -50,10 +53,12 @@ body {
   flex-flow: row nowrap;
   gap: calc(var(--height) / 5);
   height: var(--height);
+  color: #fff;
   & > .navbar-link {
     padding: 10px 15px;
     border-radius: var(--br);
     transition: background-color var(--transition) 300ms;
+    mix-blend-mode: difference;
     &:hover {
       background-color: rgb(0 0 0 / 0.1);
     }
@@ -66,6 +71,9 @@ body {
 
 .navbar-logo img {
   height: var(--height);
+  object-fit: contain;
+  object-position: left;
+  mix-blend-mode: difference;
 }
 
 // nav > profile
@@ -79,6 +87,9 @@ body {
   border-radius: var(--br) calc(var(--height) / 2) calc(var(--height) / 2)
     var(--br);
   transition: background-color var(--transition) 300ms;
+  & .profile-name {
+    color: #fff;
+  }
   &:hover {
     background-color: rgb(0 0 0 / 0.1);
   }
@@ -88,6 +99,12 @@ body {
   }
 }
 
+// Homepage
+
+.home-info {
+  color: #fff;
+}
+
 // Content
 
 .content-container {
@@ -95,8 +112,18 @@ body {
   margin-inline: auto;
 }
 
-.content-background {
-  background-color: rgb(0 0 0 / 0.1);
+.content-wrapper:nth-child(2n - 1) .content-background {
+  background-color: rgb(0 0 0 / 1);
+  & .content-container > h2 {
+    color: #fff;
+  }
+}
+
+.content-wrapper:nth-child(2n) .content-background {
+  background-color: rgb(255 255 255 / 1);
+  & .content-container > h2 {
+    color: #000;
+  }
 }
 
 .content-wrapper {
@@ -245,6 +272,16 @@ footer {
   gap: 8px;
   padding-inline: 100px;
   padding-block: 20px;
+  height: var(--footer-height);
+  background-color: white;
+  border-top: 2px solid #000;
+  & .footer-links {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
+  }
   & .info img {
     width: 120px;
   }
@@ -255,4 +292,67 @@ footer {
     align-items: end;
     gap: 8px;
   }
+}
+
+.user-profile {
+  color: #fff;
+}
+
+// Products
+
+.product-wrapper {
+  width: inherit;
+  min-width: 50vw;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+  & h2 {
+    width: 100%;
+    color: #fff;
+  }
+}
+
+.product-info {
+  & img {
+    height: 400px;
+    width: 400px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+.product-components {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  gap: 8px;
+}
+
+.product-components-info {
+  color: #000 !important;
+  font-weight: 800;
+  font-size: 125%;
+}
+
+.component-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  gap: 8px;
+  & h3 {
+    font-size: 125%;
+    font-weight: 700;
+  }
+  & h4 {
+    font-size: 115%;
+    font-weight: 600;
+  }
+  & ol {
+    padding-top: 10px;
+  }
+}
+.component-container:not(:last-of-type) {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
 }

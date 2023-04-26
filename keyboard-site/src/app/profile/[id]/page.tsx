@@ -20,6 +20,7 @@ async function getUser(userID: string) {
 
 export default async function Profile({ params }: any) {
   const user = await getUser(params.id);
+  user.username = 'its_jordan';
   return (
     <main className={openSans.className}>
       <ContentWrapper>

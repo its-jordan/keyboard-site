@@ -27,7 +27,7 @@ export default async function Home() {
           <img
             src="tangerine_530x_2x_0UnjvbSDHV.jpg"
             className="h-40 rounded-md"></img>
-          <div>
+          <div className="home-info">
             <h2>Title</h2>
             <p className="max-w-[60ch]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At
