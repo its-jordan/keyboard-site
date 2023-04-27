@@ -1,0 +1,30 @@
+[
+  {
+    "id": "Cherry MX Speed Silver",
+    "name": "Speed Silver",
+    "brand": "Cherry MX",
+    "price": "5.00",
+    "description": "The CHERRY MX Speed Silver is the fastest model of the CHERRY MX switch family in full height. Due to the linear switching characteristics combined with the low spring resistance, the silver switch triggers directly. When milliseconds decide whether you win or lose, the CHERRY MX Speed Silver is your guarantee for a successful gaming session.",
+    "information": {
+      "li-1": "Linear switching characteristics",
+      "li-2": "45cN operating force",
+      "li-3": "1.2mm pre travel",
+      "li-4": "3.4mm total travel",
+      "li-5": "No click"
+    }
+  },
+  {
+    "id": "Cherry MX Red",
+    "name": "Red",
+    "brand": "Cherry MX",
+    "price": "5.00",
+    "description": "The linear switching characteristic combined with the low spring resistance triggers directly. The CHERRY MX Red is the first choice for beginners in the world of mechanical keyboards. The smooth-running CHERRY MX technology enables balanced writing and gaming sessions.",
+    "information": {
+      "li-1": "Linear switching characteristics",
+      "li-2": "45cN operating force",
+      "li-3": "2mm pre travel",
+      "li-4": "4mm total travel",
+      "li-5": "No click"
+    }
+  }
+]

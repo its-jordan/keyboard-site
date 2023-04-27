@@ -1,3 +1,6 @@
+import { Logo } from './nav';
+import Keyswitches from '../data/Keyswitches.json';
+
 interface ContentProps {
   children?: React.ReactNode;
   title?: string;
@@ -16,13 +19,7 @@ export default function ContentWrapper({ children }: ContentProps) {
   );
 }
 
-export function ShopItems({
-  title,
-  image,
-  link,
-  price,
-  children,
-}: ContentProps) {
+export function ShopItems({ title, image, link, price, children }: ContentProps) {
   return (
     <a href={link} className="shop-item">
       <img src={image} className="shop-item-image"></img>
@@ -35,5 +32,59 @@ export function ShopItems({
         </div>
       </div>
     </a>
+  );
+}
+
+interface AccountProps {
+  user: string;
+}
+
+export function Footer({ user }: AccountProps) {
+  return (
+    <footer>
+      <div className="footer-links">
+        <h3>Sitemap</h3>
+        <a href="/">Home</a>
+        <a href="./shop">Shop</a>
+        <a href={`./profile/${user}`}>Account</a>
+      </div>
+      <div className="info">
+        <Logo />
+        <p className="flex justify-end">&copy; 2023 Jordan Schultz.</p>
+      </div>
+    </footer>
+  );
+}
+
+interface DropdownProps {
+  selected?: string;
+}
+
+export function KeySwitches({ selected }: DropdownProps) {
+  var keySwitch = Keyswitches;
+  // Object.keys(keySwitch).forEach(function (key) {
+  //   var value = keySwitch[key];
+  // });
+  return (
+    <div>
+      {Keyswitches.map((item, i) => (
+        <div key={i} className="component-container" data-name={`${item.brand} ${item.name}`}>
+          <h3>
+            {item.brand} {item.name}
+          </h3>
+          <p>{item.description}</p>
+          <h4>About the switch</h4>
+          <p>
+            <ol>
+              <li>{item.information['li-1']}</li>
+              <li>{item.information['li-2']}</li>
+              <li>{item.information['li-3']}</li>
+              <li>{item.information['li-4']}</li>
+              <li>{item.information['li-5']}</li>
+            </ol>
+          </p>
+        </div>
+      ))}
+    </div>
   );
 }

@@ -1,9 +1,5 @@
-import Navigation, {
-  Header,
-  Logo,
-  NavLink,
-  Profile,
-} from '../../components/nav';
+import { Footer } from '../../components/content';
+import Navigation, { Header, Logo, NavLink, Profile } from '../../components/nav';
 import './globals.scss';
 
 export const metadata = {
@@ -12,12 +8,10 @@ export const metadata = {
 };
 
 // TODO: Create Pages
+// TODO: Update links in footer
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  let user = 'its_jordan';
   return (
     <html lang="en">
       <body>
@@ -27,21 +21,10 @@ export default function RootLayout({
             <NavLink link="" title="Home" />
             <NavLink link="shop" title="Shop" />
           </Navigation>
-          <Profile name="Jordan" avatar="avatar.png" />
+          <Profile name={user} avatar="avatar.png" />
         </Header>
         <div className="body-wrapper">{children}</div>
-        <footer>
-          <div className="footer-links">
-            <h3>Sitemap</h3>
-            <a>Shop</a>
-            <a>Home</a>
-            <a>Account</a>
-          </div>
-          <div className="info">
-            <Logo />
-            <p className="flex justify-end">&copy; 2023 Jordan Schultz.</p>
-          </div>
-        </footer>
+        <Footer user={user}></Footer>
       </body>
     </html>
   );

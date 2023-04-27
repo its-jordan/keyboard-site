@@ -17,6 +17,8 @@ async function getItems() {
   return data?.items as any[];
 }
 
+// TODO: Add carousel in place of Header Section
+
 export default async function Home() {
   const items = await getItems();
 
@@ -24,16 +26,13 @@ export default async function Home() {
     <main className={openSans.className}>
       <ContentWrapper>
         <div className="flex flex-row flex-nowrap gap-10 items-center py-16">
-          <img
-            src="tangerine_530x_2x_0UnjvbSDHV.jpg"
-            className="h-40 rounded-md"></img>
+          <img src="tangerine_530x_2x_0UnjvbSDHV.jpg" className="h-40 rounded-md"></img>
           <div className="home-info">
             <h2>Title</h2>
             <p className="max-w-[60ch]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-              repudiandae quisquam recusandae veritatis voluptates atque
-              consectetur soluta. Iusto praesentium nesciunt laudantium iure
-              vero, aut quisquam doloremque itaque voluptate illo similique?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae quisquam
+              recusandae veritatis voluptates atque consectetur soluta. Iusto praesentium nesciunt
+              laudantium iure vero, aut quisquam doloremque itaque voluptate illo similique?
             </p>
           </div>
         </div>

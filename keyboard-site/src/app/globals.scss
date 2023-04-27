@@ -36,15 +36,21 @@ body {
   height: max-content;
   position: fixed;
   top: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   padding: 10px;
+  background: #000;
   // box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
   z-index: 100;
   & * {
     display: flex;
     align-items: center;
+  }
+  & nav {
+    justify-content: center;
+  }
+  & .profile-container {
+    justify-content: end;
   }
 }
 
@@ -84,8 +90,7 @@ body {
   align-items: center;
   gap: 5px;
   padding-inline-start: 10px;
-  border-radius: var(--br) calc(var(--height) / 2) calc(var(--height) / 2)
-    var(--br);
+  border-radius: var(--br) calc(var(--height) / 2) calc(var(--height) / 2) var(--br);
   transition: background-color var(--transition) 300ms;
   & .profile-name {
     color: #fff;
@@ -226,11 +231,7 @@ body {
     top: 0;
     left: 0;
     border-radius: var(--rounded);
-    background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 1) 25%,
-      rgba(255, 255, 255, 0.6) 100%
-    );
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0.6) 100%);
     z-index: 2;
   }
   & > .shop-item-name {
@@ -275,12 +276,18 @@ footer {
   height: var(--footer-height);
   background-color: white;
   border-top: 2px solid #000;
+  & h3 {
+    font-weight: 600;
+  }
   & .footer-links {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: start;
     align-items: center;
-    gap: 12px;
+    gap: 0 12px;
+    & h3 {
+      width: 100%;
+    }
   }
   & .info img {
     width: 120px;
@@ -355,4 +362,8 @@ footer {
 .component-container:not(:last-of-type) {
   padding-bottom: 20px;
   border-bottom: 1px solid #000;
+}
+
+.nextui-popover-content > ul {
+  max-width: calc(var(--nextui--dropdownMenuWidth) + 20px);
 }

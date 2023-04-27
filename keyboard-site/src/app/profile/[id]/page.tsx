@@ -9,10 +9,9 @@ const openSans = Open_Sans({
 });
 
 async function getUser(userID: string) {
-  const res = await fetch(
-    `http://127.0.0.1:8090/api/collections/users/records/${userID}`,
-    { next: { revalidate: 10 } }
-  );
+  const res = await fetch(`http://127.0.0.1:8090/api/collections/users/records/${userID}`, {
+    next: { revalidate: 10 },
+  });
   const data = await res.json();
 
   return data;
@@ -20,12 +19,12 @@ async function getUser(userID: string) {
 
 export default async function Profile({ params }: any) {
   const user = await getUser(params.id);
-  user.username = 'its_jordan';
+  user.username = 'Jordan';
   return (
     <main className={openSans.className}>
       <ContentWrapper>
         <div className="user-profile">
-          <h1>
+          <h1 className="text-xl font-bold">
             Welcome back, <span>{user.username}</span>!
           </h1>
           <OrderHistory user={user.username}></OrderHistory>
