@@ -1,7 +1,7 @@
 import { Open_Sans } from 'next/font/google';
 import ContentWrapper from '../../../../components/content';
 import React from 'react';
-import Keyboard from './../../../../data/Keyboards.json';
+import Keyboard from './keyboards.json';
 import { Cases, Keycaps, Keyswitches, PrismaClient } from '@prisma/client';
 
 const openSans = Open_Sans({
