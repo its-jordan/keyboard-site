@@ -2,7 +2,7 @@ import { Open_Sans } from 'next/font/google';
 import ContentWrapper from '../../../../components/content';
 import React from 'react';
 import { Cases, Keycaps, Keyswitches, PrismaClient } from '@prisma/client';
-import Keyboard from '../../../../data/keyboards.json';
+import Keyboard from './../../../../data/Keyboards.json';
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700'],
