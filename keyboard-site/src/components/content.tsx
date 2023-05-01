@@ -1,5 +1,5 @@
 import { Logo } from './nav';
-import Keyswitches from '../data/Keyswitches.json';
+import Keyswitches from '../data/keyswitches.json';
 import Link from 'next/link';
 
 interface ContentProps {
