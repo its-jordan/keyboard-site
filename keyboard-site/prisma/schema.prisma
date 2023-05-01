@@ -78,3 +78,9 @@ model Product {
   short_description String
   long_description  String
 }
+
+model Size {
+  id   Int    @id @default(autoincrement())
+  size String
+  img  String
+}

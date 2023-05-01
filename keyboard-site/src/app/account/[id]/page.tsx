@@ -1,13 +1,7 @@
 'use client';
 import { Open_Sans } from 'next/font/google';
 import ContentWrapper from '../../../components/content';
-import {
-  SignIn,
-  SignInButton,
-  UserButton,
-  useAuth,
-  useUser,
-} from '@clerk/nextjs';
+import { SignInButton, useUser } from '@clerk/nextjs';
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700', '800'],

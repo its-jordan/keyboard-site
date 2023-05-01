@@ -1,5 +1,6 @@
 import { Open_Sans } from 'next/font/google';
-import ContentWrapper, { ShopItems } from '../components/content';
+import ContentWrapper, { KeySwitches, ShopItems } from '../components/content';
+import Keyboards from '../data/Keyboards.json';
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700'],
@@ -7,39 +8,16 @@ const openSans = Open_Sans({
   subsets: ['latin'],
 });
 
-async function getItems() {
-  const res = await fetch(
-    'http://127.0.0.1:8090/api/collections/products/records?page=1&perPage=30',
-    { cache: 'no-store' }
-  );
-  const data = await res.json();
-
-  return data?.items as any[];
-}
-
-async function getKeyswitches() {
-  const res = await fetch(
-    'http://127.0.0.1:8090/api/collections/keyswitches/records?page=1&perPage=30',
-    { cache: 'no-store' }
-  );
-  const data = await res.json();
-
-  return data?.items as any[];
-}
-
 // TODO: Add carousel in place of Header Section
 
-export default async function Home() {
-  const keySwitches = await getKeyswitches();
-  const items = await getItems();
+export default function Home() {
+  const items = Keyboards;
 
   return (
     <main className={openSans.className}>
       <ContentWrapper>
         <div className="flex flex-row flex-nowrap gap-10 items-center py-16">
-          <img
-            src="tangerine_530x_2x_0UnjvbSDHV.jpg"
-            className="h-40 rounded-md"></img>
+          <img src="fullsize.jpg" className="h-40 rounded-md"></img>
           <div className="home-info">
             <h2>Title</h2>
             <p className="max-w-[60ch]">
@@ -57,17 +35,12 @@ export default async function Home() {
               <ShopItems
                 key={item.id}
                 title={item.product_name}
-                image={`http://127.0.0.1:8090/api/files/ij181xiqwd5pfx6/${item.id}/${item.product_images[0]}`}
+                image={item.product_images}
                 price="100"
                 link={`/shop/product/${item.type}`}>
                 {item.short_description}
               </ShopItems>
             );
-          })}
-        </div>
-        <div className="text-white">
-          {keySwitches?.map((item) => {
-            return <div key={item.id}>{item.name}</div>;
           })}
         </div>
       </ContentWrapper>

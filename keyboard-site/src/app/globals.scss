@@ -39,7 +39,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 10px;
-  background: hsl(222 50% 50% / 1);
+  background: #000;
   z-index: 100;
   & * {
     display: flex;

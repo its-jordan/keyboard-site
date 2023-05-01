@@ -27,6 +27,7 @@ export default function RootLayout({
             <Navigation>
               <NavLink link="" title="Home" />
               <NavLink link="shop" title="Shop" />
+              <NavLink link="cart" title="Cart" />
               <Profile />
             </Navigation>
           </Header>

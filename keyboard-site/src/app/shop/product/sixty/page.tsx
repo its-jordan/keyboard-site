@@ -1,19 +1,8 @@
 import { Open_Sans } from 'next/font/google';
-import ContentWrapper, { KeySwitches } from '../../../../components/content';
-import React, { useState } from 'react';
-import { Dropdown } from '@nextui-org/react';
-import {
-  KeyboardCase,
-  KeycapList,
-  KeyswitchList,
-} from '../../../../components/dropdown';
-import {
-  AllCases,
-  Cases,
-  Keycaps,
-  Keyswitches,
-  PrismaClient,
-} from '@prisma/client';
+import ContentWrapper from '../../../../components/content';
+import React from 'react';
+import { Cases, Keycaps, Keyswitches, PrismaClient } from '@prisma/client';
+import Keyboard from '../../../../data/Keyboards.json';
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700'],
@@ -21,22 +10,10 @@ const openSans = Open_Sans({
   subsets: ['latin'],
 });
 
-async function getItem() {
-  const res = await fetch(
-    `http://127.0.0.1:8090/api/collections/products/records/wz5xgzgebq7adhe`,
-    {
-      next: { revalidate: 10 },
-    }
-  );
-  const data = await res.json();
-
-  return data;
-}
-
 // TODO: Add the changing images (keyboard renders) based on selections
 
 export default async function ItemPage() {
-  const item = await getItem();
+  const item = Keyboard[0];
   const prisma = new PrismaClient();
   const keys: Array<Keyswitches> = await prisma.keyswitches.findMany();
   const keyCaps: Array<Keycaps> = await prisma.keycaps.findMany();
@@ -55,7 +32,7 @@ export default async function ItemPage() {
           <h2>{item.product_name} Keyboard</h2>
           <div className="product-info">
             <img
-              src={`http://127.0.0.1:8090/api/files/ij181xiqwd5pfx6/${item.id}/${item.product_images[0]}`}
+              src={`/${item.product_images}`}
               className="h-40 w-40 rounded-md"
               alt={`Image of ${item.product_name}`}></img>
           </div>

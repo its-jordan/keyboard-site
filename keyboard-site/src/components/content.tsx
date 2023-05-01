@@ -1,5 +1,6 @@
 import { Logo } from './nav';
 import Keyswitches from '../data/Keyswitches.json';
+import Link from 'next/link';
 
 interface ContentProps {
   children?: React.ReactNode;
@@ -50,9 +51,10 @@ export function Footer({ user }: AccountProps) {
     <footer>
       <div className="footer-links">
         <h3>Sitemap</h3>
-        <a href="/">Home</a>
-        <a href="./shop">Shop</a>
-        <a href={`./profile/${user}`}>Account</a>
+        <Link href="/shop">Shop</Link>
+        <Link href={`/account/${user}`}>Account</Link>
+        <Link href="/cart">Cart</Link>
+        <Link href="/about">About</Link>
       </div>
       <div className="info">
         <Logo />

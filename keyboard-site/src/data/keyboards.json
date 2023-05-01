@@ -1,0 +1,34 @@
+[
+  {
+    "id": "0",
+    "product_name": "60%",
+    "short_description": "Smaller keyboard for those with limited space",
+    "long_description": "",
+    "product_images": "sixty.jpg",
+    "type": "sixty"
+  },
+  {
+    "id": "1",
+    "product_name": "65%",
+    "short_description": "Like a 60%, but with arrow keys!",
+    "long_description": "",
+    "product_images": "sixtyfive.jpg",
+    "type": "sixtyfive"
+  },
+  {
+    "id": "2",
+    "product_name": "Tenkeyless",
+    "short_description": "Who really needs a number pad anyway?",
+    "long_description": "",
+    "product_images": "tenkeyless.jpeg",
+    "type": "tenkeyless"
+  },
+  {
+    "id": "3",
+    "product_name": "Full-Size",
+    "short_description": "Full size board, including a numpad!",
+    "long_description": "",
+    "product_images": "fullsize.jpg",
+    "type": "fullsize"
+  }
+]
