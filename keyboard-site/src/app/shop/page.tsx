@@ -1,5 +1,5 @@
 import { Open_Sans } from 'next/font/google';
-import ContentWrapper, { ShopItems } from '../../../components/content';
+import ContentWrapper, { ShopItems } from '../../components/content';
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700'],
@@ -49,7 +49,7 @@ export default async function Shop() {
                 title={item.product_name}
                 image={`http://127.0.0.1:8090/api/files/ij181xiqwd5pfx6/${item.id}/${item.product_images[0]}`}
                 price="100"
-                link={`/shop/product/${item.id}`}>
+                link={`/shop/product/${item.type}`}>
                 {item.short_description}
               </ShopItems>
             );

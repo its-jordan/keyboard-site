@@ -1,4 +1,7 @@
+'use client';
 import Image from 'next/image';
+import { SignInButton, UserButton, useAuth, useUser } from '@clerk/nextjs';
+import PocketBase from 'pocketbase';
 
 interface NavProps {
   children?: React.ReactNode;
@@ -40,24 +43,21 @@ export function Logo() {
   );
 }
 
-interface ProfileProps {
-  name: string;
-  avatar: string;
-}
+export function Profile() {
+  const { isLoaded, isSignedIn, user } = useUser();
 
-export function Profile({ name, avatar }: ProfileProps) {
+  if (!isLoaded || !isSignedIn) {
+    return (
+      <a className="profile-container signed-out" href={`/account/signin`}>
+        Sign In
+      </a>
+    );
+  }
+
   return (
-    <a className="profile-container" href={`/profile/${name}`}>
-      <div className="profile-name">{name}</div>
-      <div className="profile-avatar">
-        <Image
-          priority
-          src={`/${avatar}`}
-          height={40}
-          width={40}
-          alt="User Profile Picture"
-        />
-      </div>
-    </a>
+    <div className="profile-container">
+      <a href={`/account/${user.username}`}>Orders</a>
+      <UserButton></UserButton>
+    </div>
   );
 }

@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  Reviews Review[]
+}
+
+model Review {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  rating    Int
+  published Boolean @default(false)
+  authorId  Int
+  author    User    @relation(fields: [authorId], references: [id])
+}
+
+model Keycaps {
+  id           Int         @id @default(autoincrement())
+  brand        String
+  model        String
+  material     String
+  price        Float
+  AllKeycapsId Int?
+  description  String?
+  AllKeycaps   AllKeycaps? @relation(fields: [AllKeycapsId], references: [id])
+}
+
+model AllKeycaps {
+  id     Int       @id @default(autoincrement())
+  keycap Keycaps[]
+}
+
+model Keyswitches {
+  id            Int          @id @default(autoincrement())
+  brand         String
+  model         String
+  price         Float
+  AllSwitchesId Int?
+  description   String?
+  AllSwitches   AllSwitches? @relation(fields: [AllSwitchesId], references: [id])
+}
+
+model AllSwitches {
+  id        Int           @id @default(autoincrement())
+  keyswitch Keyswitches[]
+}
+
+model Cases {
+  id          Int       @id @default(autoincrement())
+  brand       String
+  model       String
+  size        String
+  price       Float
+  allCasesId  Int?
+  description String?
+  AllCases    AllCases? @relation(fields: [allCasesId], references: [id])
+}
+
+model AllCases {
+  id   Int     @id @default(autoincrement())
+  size String  @default("tenkeyless")
+  case Cases[]
+}
+
+model Product {
+  id                Int    @id @default(autoincrement())
+  product_name      String @default("tenkeyless")
+  short_description String
+  long_description  String
+}

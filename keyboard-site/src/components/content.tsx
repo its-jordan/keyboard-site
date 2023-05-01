@@ -19,7 +19,13 @@ export default function ContentWrapper({ children }: ContentProps) {
   );
 }
 
-export function ShopItems({ title, image, link, price, children }: ContentProps) {
+export function ShopItems({
+  title,
+  image,
+  link,
+  price,
+  children,
+}: ContentProps) {
   return (
     <a href={link} className="shop-item">
       <img src={image} className="shop-item-image"></img>
@@ -68,7 +74,10 @@ export function KeySwitches({ selected }: DropdownProps) {
   return (
     <div>
       {Keyswitches.map((item, i) => (
-        <div key={i} className="component-container" data-name={`${item.brand} ${item.name}`}>
+        <div
+          key={i}
+          className="component-container"
+          data-name={`${item.brand} ${item.name}`}>
           <h3>
             {item.brand} {item.name}
           </h3>

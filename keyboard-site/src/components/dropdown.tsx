@@ -1,42 +1,27 @@
-'use client';
-
 import { Dropdown } from '@nextui-org/react';
 import React from 'react';
+import { Keycaps, Keyswitches, PrismaClient } from '@prisma/client';
 
 interface DropdownProps {
   name?: string;
   item?: string;
 }
 
-export function KeyswitchList({ name }: DropdownProps) {
-  var keyswitches = [
-    ['None', 'None', '', '0.00'],
-    ['Cherry MX Red', 'Cherry MX', 'Red', '5.00'],
-    ['Cherry MX Blue', 'Cherry MX', 'Blue', '5.00'],
-    ['Cherry MX Brown', 'Cherry MX', 'Brown', '5.00'],
-    ['Cherry MX Sp', 'Cherry MX', 'Speed Silver', '5.00'],
-  ];
-  let selected: any;
-  let setSelected: any;
-  [selected, setSelected] = React.useState(new Set([`${name}`]));
+async function Prisma() {
+  const prisma = new PrismaClient();
+  const keys: Array<Keyswitches> = await prisma.keyswitches.findMany();
+  return keys;
+}
 
-  const selectedValue = React.useMemo(
-    () => Array.from(selected).join(', ').replaceAll('_', ' '),
-    [selected]
-  );
+export async function KeyswitchList() {
+  let keys = await Prisma();
   return (
     <Dropdown>
-      <Dropdown.Button flat>{selectedValue}</Dropdown.Button>
-      <Dropdown.Menu
-        aria-label="Single selection actions"
-        disabledKeys={[`${name}`]}
-        disallowEmptySelection
-        selectionMode="single"
-        selectedKeys={selected}
-        onSelectionChange={setSelected}>
-        {keyswitches.map(([key, brand, color, price]) => (
-          <Dropdown.Item key={key}>
-            {brand} {color} : {price}
+      <Dropdown.Button flat>Trigger</Dropdown.Button>
+      <Dropdown.Menu aria-label="Static Actions">
+        {keys?.map((key) => (
+          <Dropdown.Item key={key.id}>
+            {key.brand} {key.model}
           </Dropdown.Item>
         ))}
       </Dropdown.Menu>

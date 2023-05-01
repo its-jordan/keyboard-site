@@ -1,5 +1,5 @@
 interface ProfileProps {
-  user: string;
+  user: string | null;
   children?: React.ReactNode;
 }
 
