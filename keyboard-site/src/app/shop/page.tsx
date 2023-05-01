@@ -1,6 +1,6 @@
 import { Open_Sans } from 'next/font/google';
 import ContentWrapper, { ShopItems } from '../../components/content';
-import Keyboards from './keyboards.json';
+import Keyboards from './Keyboards.json';
 
 const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700'],
