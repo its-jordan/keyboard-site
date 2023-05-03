@@ -12,7 +12,7 @@ const openSans = Open_Sans({
 
 // TODO: Add the changing images (keyboard renders) based on selections
 
-export default async function ItemPage() {
+export default async function ItemPage(this: any) {
   const item = Keyboard[2];
   const prisma = new PrismaClient();
   const keys: Array<Keyswitches> = await prisma.keyswitches.findMany();
@@ -36,28 +36,38 @@ export default async function ItemPage() {
               className="h-40 w-40 rounded-md"
               alt={`Image of ${item.product_name}`}></img>
           </div>
-          <div className="product-components">
-            <select>
-              {keys?.map((key) => (
-                <option key={key.id} data-price={key.price} value={key.id}>
-                  {key.brand} {key.model}
-                </option>
-              ))}
-            </select>
-            <select>
-              {keyCaps?.map((key) => (
-                <option key={key.id} data-price={key.price} value={key.id}>
-                  {key.brand} {key.model}
-                </option>
-              ))}
-            </select>
-            <select>
-              {keyCase?.map((key) => (
-                <option key={key.id} data-price={key.price} value={key.id}>
-                  {key.brand} {key.model}
-                </option>
-              ))}
-            </select>
+          <div className="product-components items-end">
+            <div className="flex flex-col flex-nowrap gap-2">
+              <h3 className="text-white font-bold text-xl">Key Switches</h3>
+              <select>
+                {keys?.map((key) => (
+                  <option key={key.id} data-price={key.price} value={key.id}>
+                    {key.brand} {key.model}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex flex-col flex-nowrap gap-2">
+              <h3 className="text-white font-bold text-xl">Key Caps</h3>
+              <select>
+                {keyCaps?.map((key) => (
+                  <option key={key.id} data-price={key.price} value={key.id}>
+                    {key.brand} {key.model}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex flex-col flex-nowrap gap-2">
+              <h3 className="text-white font-bold text-xl">Case</h3>
+              <select>
+                {keyCase?.map((key) => (
+                  <option key={key.id} data-price={key.price} value={key.id}>
+                    {key.brand} {key.model}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button>Purchase</button>
           </div>
         </div>
       </ContentWrapper>
